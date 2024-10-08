@@ -22,9 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
             element.classList.add('active');
         });
     });
+    englishImage.addEventListener('touchend', () => {
+        hideAllContent();
+        htmlTag.setAttribute('lang', 'en'); // Update <html lang="en">
+        englishContent.forEach((element) => {
+            element.classList.add('active');
+        });
+    });
 
     // Show German content and update <html lang> when the German image is clicked
     germanImage.addEventListener('click', () => {
+        hideAllContent();
+        htmlTag.setAttribute('lang', 'de'); // Update <html lang="de">
+        germanContent.forEach((element) => {
+            element.classList.add('active');
+        });
+    });
+    germanImage.addEventListener('touchend', () => {
         hideAllContent();
         htmlTag.setAttribute('lang', 'de'); // Update <html lang="de">
         germanContent.forEach((element) => {
@@ -38,6 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
     englishContent.forEach((element) => {
         element.classList.add('active');
     });
+    // Add event listeners for PC buttons
+    englishImagePc.addEventListener('click', () => switchLanguage('en'));
+    germanImagePc.addEventListener('click', () => switchLanguage('de'));
+
+    // Add event listeners for mobile buttons
+    englishImageMobile.addEventListener('click', () => switchLanguage('en'));
+    englishImageMobile.addEventListener('touchend', () => switchLanguage('en'));
+
+    germanImageMobile.addEventListener('click', () => switchLanguage('de'));
+    germanImageMobile.addEventListener('touchend', () => switchLanguage('de'));
+
 });
 
 //function that prevents the form from opening a new tab and creates text below it
