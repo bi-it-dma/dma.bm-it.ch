@@ -1,8 +1,10 @@
 
 //Language switch
 document.addEventListener('DOMContentLoaded', () => {
-    const englishImage = document.getElementById('en_img');
-    const germanImage = document.getElementById('de_img');
+    const englishImagePc = document.getElementById('en_img_pc');
+    const germanImagePc = document.getElementById('de_img_pc');
+    const englishImageMobile = document.getElementById('en_img_mobile');
+    const germanImageMobile = document.getElementById('de_img_mobile');
     const englishContent = document.querySelectorAll('.lang.en');
     const germanContent = document.querySelectorAll('.lang.de');
     const htmlTag = document.documentElement; // Get the <html> tag
@@ -10,60 +12,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to hide all language content
     function hideAllContent() {
         document.querySelectorAll('.lang').forEach((element) => {
-            element.classList.remove('active');
+            element.classList.remove('active'); // You can use CSS to hide elements with 'active' class
         });
     }
 
-    // Show English content and update <html lang> when the English image is clicked
-    englishImage.addEventListener('click', () => {
+    // Function to switch language
+    function switchLanguage(lang) {
         hideAllContent();
-        htmlTag.setAttribute('lang', 'en'); // Update <html lang="en">
-        englishContent.forEach((element) => {
-            element.classList.add('active');
-        });
-    });
-    englishImage.addEventListener('touchend', () => {
-        hideAllContent();
-        htmlTag.setAttribute('lang', 'en'); // Update <html lang="en">
-        englishContent.forEach((element) => {
-            element.classList.add('active');
-        });
-    });
+        htmlTag.setAttribute('lang', lang); // Update <html lang="...">
+        if (lang === 'en') {
+            englishContent.forEach((element) => element.classList.add('active'));
+        } else if (lang === 'de') {
+            germanContent.forEach((element) => element.classList.add('active'));
+        }
+    }
 
-    // Show German content and update <html lang> when the German image is clicked
-    germanImage.addEventListener('click', () => {
-        hideAllContent();
-        htmlTag.setAttribute('lang', 'de'); // Update <html lang="de">
-        germanContent.forEach((element) => {
-            element.classList.add('active');
-        });
-    });
-    germanImage.addEventListener('touchend', () => {
-        hideAllContent();
-        htmlTag.setAttribute('lang', 'de'); // Update <html lang="de">
-        germanContent.forEach((element) => {
-            element.classList.add('active');
-        });
-    });
-
-    // Default to showing English content on load
-    hideAllContent();
-    htmlTag.setAttribute('lang', 'en'); // Set default language to English on load
-    englishContent.forEach((element) => {
-        element.classList.add('active');
-    });
-    // Add event listeners for PC buttons
+    // Add event listeners for PC language buttons
     englishImagePc.addEventListener('click', () => switchLanguage('en'));
     germanImagePc.addEventListener('click', () => switchLanguage('de'));
 
-    // Add event listeners for mobile buttons
+    // Add event listeners for Mobile language buttons
     englishImageMobile.addEventListener('click', () => switchLanguage('en'));
-    englishImageMobile.addEventListener('touchend', () => switchLanguage('en'));
-
     germanImageMobile.addEventListener('click', () => switchLanguage('de'));
-    germanImageMobile.addEventListener('touchend', () => switchLanguage('de'));
 
+    // Default to showing English content on page load
+    switchLanguage('en');
 });
+
 
 //function that prevents the form from opening a new tab and creates text below it
 document.getElementById('contactForm').addEventListener('submit', function(event) {

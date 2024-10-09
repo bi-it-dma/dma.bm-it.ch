@@ -44,6 +44,7 @@ html{
         position: -webkit-sticky;
         position: sticky;
         top: 62px;
+        z-index: 9999;
     }
     body{
         width: 100%;
@@ -120,7 +121,7 @@ html{
     }
     .nav{
         width: 75%;
-        height: 4rem;
+        height: 5rem;
     }
     .nav a{
         font-size: 2rem;
