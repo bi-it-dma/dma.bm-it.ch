@@ -1,10 +1,8 @@
 
 //Language switch
 document.addEventListener('DOMContentLoaded', () => {
-    const englishImagePc = document.getElementById('en_img_pc');
-    const germanImagePc = document.getElementById('de_img_pc');
-    const englishImageMobile = document.getElementById('en_img_mobile');
-    const germanImageMobile = document.getElementById('de_img_mobile');
+    const englishImage = document.getElementById('en_img');
+    const germanImage = document.getElementById('de_img');
     const englishContent = document.querySelectorAll('.lang.en');
     const germanContent = document.querySelectorAll('.lang.de');
     const htmlTag = document.documentElement; // Get the <html> tag
@@ -17,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Show English content and update <html lang> when the English image is clicked
-    englishImagePc.addEventListener('click', () => {
+    englishImage.addEventListener('click', () => {
         hideAllContent();
         htmlTag.setAttribute('lang', 'en'); // Update <html lang="en">
         englishContent.forEach((element) => {
             element.classList.add('active');
         });
     });
-    englishImageMobile.addEventListener('touchend', () => {
+    englishImage.addEventListener('touchend', () => {
         hideAllContent();
         htmlTag.setAttribute('lang', 'en'); // Update <html lang="en">
         englishContent.forEach((element) => {
@@ -33,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Show German content and update <html lang> when the German image is clicked
-    germanImagePc.addEventListener('click', () => {
+    germanImage.addEventListener('click', () => {
         hideAllContent();
         htmlTag.setAttribute('lang', 'de'); // Update <html lang="de">
         germanContent.forEach((element) => {
             element.classList.add('active');
         });
     });
-    germanImageMobile.addEventListener('touchend', () => {
+    germanImage.addEventListener('touchend', () => {
         hideAllContent();
         htmlTag.setAttribute('lang', 'de'); // Update <html lang="de">
         germanContent.forEach((element) => {
