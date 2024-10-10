@@ -1,0 +1,38 @@
+/* Components */
+
+/* Content Intro */
+.content_intro h3,
+.content_intro h2{
+    margin: 3rem 15rem;
+    text-align: left;
+    word-break: normal;
+}
+
+/* Footer */
+.site_footer{
+    display:table;
+    position: absolute;
+    width: 100%;
+    height: 2em;
+}
+.site_footer strong{
+    font-size: calc(100% + 10px);
+    padding-bottom: 5px;
+}
+.site_footer li{
+    list-style-type: none;
+    color: inherit;
+    line-height: 30px;
+    /* padding-left: 10%; */
+}
+.site_footer div + .site_footer div{
+    margin-left: 5rem;
+}
+.site_footer div ul{
+    padding-left: 16rem;
+    float: left;
+}
+.site_footer div a{
+    text-decoration: none;
+    color: inherit;
+}
