@@ -18,18 +18,22 @@ document.addEventListener('DOMContentLoaded', () => {
         hideAllContent();
         htmlTag.setAttribute('lang', lang);
         localStorage.setItem('lang', lang); // Save the language in localStorage
-
+    
         if (lang === 'en') {
             document.querySelectorAll('.lang.en').forEach((element) => element.classList.add('active'));
         } else if (lang === 'de') {
             document.querySelectorAll('.lang.de').forEach((element) => element.classList.add('active'));
         }
-
-        // Update URL with the current language
+    
+        // Preserve the current hash
+        const currentHash = window.location.hash;
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('lang', lang);
-        window.history.replaceState(null, '', '?' + urlParams.toString());
+        
+        // Update URL with the current language and hash
+        window.history.replaceState(null, '', '?' + urlParams.toString() + currentHash);
     }
+    
 
     // Check URL for language parameter
     const urlParams = new URLSearchParams(window.location.search);
@@ -49,30 +53,30 @@ document.addEventListener('DOMContentLoaded', () => {
     germanImageMobile?.addEventListener('click', () => switchLanguage('de'));
 
     // Function that prevents the form from opening a new tab and creates text below it
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting normally
 
-    // Create a FormData object to capture form data
-    let formData = new FormData(this);
+        // Create a FormData object to capture form data
+        let formData = new FormData(this);
 
-    // Send form data via AJAX (Fetch API)
-    fetch('/src/php/send-email.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text()) // Expect text response from PHP
-    .then(data => {
-        // Displays the message in the div box under the form
-        document.getElementById('messageBox').innerHTML = data;
+        // Send form data via AJAX (Fetch API)
+        fetch('/src/php/send-email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text()) // Expect text response from PHP
+        .then(data => {
+            // Displays the message in the div box under the form
+            document.getElementById('messageBox').innerHTML = data;
 
-        // Reset the form fields
-        this.reset();
-    })
-    .catch(error => {
-        // If error
-        document.getElementById('messageBox').innerHTML = "An error occurred. Please try again.";
+            // Reset the form fields
+            this.reset();
+        })
+        .catch(error => {
+            // If error
+            document.getElementById('messageBox').innerHTML = "An error occurred. Please try again.";
+        });
     });
-});
 
 
     // Anchor link functionality
