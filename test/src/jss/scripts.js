@@ -1,6 +1,5 @@
-
-//Language switch
 document.addEventListener('DOMContentLoaded', () => {
+    // Language switch
     const englishImagePc = document.getElementById('en_img_pc');
     const germanImagePc = document.getElementById('de_img_pc');
     const englishImageMobile = document.getElementById('en_img_mobile');
@@ -48,41 +47,41 @@ document.addEventListener('DOMContentLoaded', () => {
     germanImagePc?.addEventListener('click', () => switchLanguage('de'));
     englishImageMobile?.addEventListener('click', () => switchLanguage('en'));
     germanImageMobile?.addEventListener('click', () => switchLanguage('de'));
-});
 
+    // Function that prevents the form from opening a new tab and creates text below it
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting normally
 
+        // Create a FormData object to capture form data
+        let formData = new FormData(this);
 
-//function that prevents the form from opening a new tab and creates text below it
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting normally
-
-    // Create a FormData object to capture form data
-    let formData = new FormData(this);
-
-    // Send form data via AJAX (Fetch API)
-    fetch('/library/php/send-email.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text()) // Expect text response from PHP
-    .then(data => {
-        // displays the message in the div box under the form
-        document.getElementById('messageBox').innerHTML = data;
-    })
-    .catch(error => {
-        // if error
-        document.getElementById('messageBox').innerHTML = "An error occurred. Please try again.";
+        // Send form data via AJAX (Fetch API)
+        fetch('/src/php/send-email.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text()) // Expect text response from PHP
+        .then(data => {
+            // displays the message in the div box under the form
+            document.getElementById('messageBox').innerHTML = data;
+        })
+        .catch(error => {
+            // if error
+            document.getElementById('messageBox').innerHTML = "An error occurred. Please try again.";
+        });
     });
-});
 
-// anchor link
-document.querySelectorAll('.anchor').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('data-target'));
-        window.scrollTo({
-            top: target.offsetTop,
-            behavior: 'smooth'
+    // Anchor link functionality
+    document.querySelectorAll('.anchor').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('data-target'));
+            if (target) { // Ensure the target exists
+                window.scrollTo({
+                    top: target.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 });
