@@ -64,6 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             // displays the message in the div box under the form
             document.getElementById('messageBox').innerHTML = data;
+
+            // Reset the form fields
+            this.reset();
         })
         .catch(error => {
             // if error
