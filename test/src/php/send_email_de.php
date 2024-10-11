@@ -15,9 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (mail($to, $subject, $body, $headers)) {
-        echo "Message sent successfully  :)";
+        echo "Nachricht verschickt :)";
     } else {
-        echo "Failed to send the message. Please try again.";
+        echo "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.";
     }
 } else {
     echo "Invalid request.";
