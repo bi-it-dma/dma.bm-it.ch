@@ -56,7 +56,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     let formData = new FormData(this);
 
     // Send form data via AJAX (Fetch API)
-    fetch('/src/php/send_email.php', {
+    fetch('/src/php/send-email.php', {
         method: 'POST',
         body: formData
     })
@@ -73,7 +73,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         document.getElementById('messageBox').innerHTML = "An error occurred. Please try again.";
     });
 });
-
 
 
     // Anchor link functionality
