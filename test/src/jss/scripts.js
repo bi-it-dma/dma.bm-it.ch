@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     germanImageMobile?.addEventListener('click', () => switchLanguage('de'));
 
     // Function that prevents the form from opening a new tab and creates text below it
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from submitting normally
 
     // Create a FormData object to capture form data
