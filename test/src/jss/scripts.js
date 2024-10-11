@@ -60,7 +60,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     let formData = new FormData(this);
 
     // Send form data via AJAX (Fetch API)
-    fetch('/src/php/send-email.php', {
+    fetch('/library/php/send-email.php', {
         method: 'POST',
         body: formData
     })
