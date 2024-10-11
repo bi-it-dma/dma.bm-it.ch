@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const langFromUrl = urlParams.get('lang') || localStorage.getItem('lang') || 'en'; // Default to 'en'
 
     // Select the appropriate PHP file based on the active language
-    const phpFile = langFromUrl === 'de' ? '/src/php/send_email_de.php' : '/src/php/send_email_en.php';
+    const phpFile = langFromUrl === 'de' ? '/src/php/send_email_de.php' : '/src/php/send_email.php';
 
     // Send form data via AJAX (Fetch API)
     fetch(phpFile, {
