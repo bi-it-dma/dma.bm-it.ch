@@ -49,21 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
     germanImageMobile?.addEventListener('click', () => switchLanguage('de'));
 
     // Function that prevents the form from opening a new tab and creates text below it
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from submitting normally
 
     // Create a FormData object to capture form data
     let formData = new FormData(this);
-    
-    // Determine the active language
-    const urlParams = new URLSearchParams(window.location.search);
-    const langFromUrl = urlParams.get('lang') || localStorage.getItem('lang') || 'en'; // Default to 'en'
-
-    // Select the appropriate PHP file based on the active language
-    const phpFile = langFromUrl === 'de' ? '/src/php/send_email_de.php' : '/src/php/send_email.php';
 
     // Send form data via AJAX (Fetch API)
-    fetch(phpFile, {
+    fetch('/src/php/send-email.php', {
         method: 'POST',
         body: formData
     })
@@ -80,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('messageBox').innerHTML = "An error occurred. Please try again.";
     });
 });
+
 
 
     // Anchor link functionality
