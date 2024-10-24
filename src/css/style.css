@@ -22,16 +22,32 @@
 }
 
 /* general */
+html,
+body{
+    min-height: 100vh;
+    padding: 0px;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
 html{
-    height: 100%;
     --black: #303030;
     --off-white: #edeee9;
     --gray: #909090;
     position: relative;
     scroll-behavior: smooth;
     font-family: 'merriweather-italic';
+    overflow-x: hidden;
 }
-
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(45, 1, 53) 0%, var(--cool_purple) 40%, rgb(39, 1, 46) 110%);
+    text-align: center;
+    font-size: 17px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 /* media screen queries */
 /* small screen */
 @media screen and (max-width: 600px) {
@@ -39,15 +55,21 @@ html{
         display: none;
     }
     #mobile_button {
-        display: grid;
+        display: flex;
+        flex-direction: column;
         justify-content: end;
         position: -webkit-sticky;
-        position: sticky;
+        position: fixed;
         top: 62px;
-        z-index: 9999;
+        right: 0px;
+        z-index: 999;
+    }
+    #mobile{
+        display: flex;
     }
     body{
-        width: 100%;
+        position: relative;
+        margin: 0;
     }
     h1{
         font-size: 2rem;
@@ -55,17 +77,10 @@ html{
     p{
         font-size: 1rem;
     }
-    .nav{
-        width: 100%;
-        height: 2rem;
-    }
-    .nav a{
-        font-size: 0.8rem;
-    }
     .intro{
         margin: 0;
     }
-    .intro img{
+    .intro img#me{
         max-width: 70%;
         height: auto;
     }
@@ -75,11 +90,14 @@ html{
     }
     .lang_button{
         padding: 0;
+        margin: 0 20px;
     }
     .content{
     max-width: 100%;
     border-top-left-radius: 25%;
-    border-top-right-radius: 25%;  
+    border-top-right-radius: 25%;
+    flex: 50%;
+    padding: 4rem 1rem 2rem 1rem;
     }
     section:nth-child(5){
         font-size: 1rem;
@@ -90,7 +108,6 @@ html{
     }
     footer{
         width: 100%;
-        padding: 2rem 0.5rem;
     }
     footer li{
         font-size: 1rem;
@@ -104,14 +121,25 @@ html{
     #mobile_button {
         display: none;
     }
-    
     #pc_button {
         display: inline-block;
         position: -webkit-sticky;
-        position: sticky;
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    #pc_button.info {
+        left: 35vw;
+    }
+    #mobile{
+        display: none;
+    }
+    html,
+    body{
+        margin: 0px auto;
     }
     body{
-        width: 75%;
+        width: 85%;
     }
     h1{
         font-size: 3rem;
@@ -119,17 +147,13 @@ html{
     p{
         font-size: 1.2rem;
     }
-    .nav{
-        width: 75%;
-        height: 5rem;
-    }
     .nav a{
         font-size: 2rem;
     }
     .intro{
-        margin: 2rem 0 0;
+        margin-top: 1rem;
     }
-    .intro img{
+    .intro img#me{
         max-width: 30%;
         height: auto;
     }
@@ -143,91 +167,96 @@ html{
     .content{
     max-width: 60%;
     border-top-left-radius: 75%;
-    border-top-right-radius: 75%;  
+    border-top-right-radius: 75%;
+    flex: 35%;
+    padding: 4rem 1rem 3rem;
     }
     .form_container{
     width: 50%;
-    height: auto;
+    height: 5rem auto;
+    }
+    #good_to_know{
+    padding: 0rem 0rem 1rem;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
     }
     footer{
         width: 75%;
-        padding: 2rem;
-    }
-    footer li{
-        font-size: 0.8rem;
+        font-size: 1.2rem;
     }
     .footer_child:last-child {
         text-align: left; 
         position: relative;
-        right: 5rem;
         margin: 0 auto;
     }
 }
 /* body */
-body{
-    display: flex;
-    flex-direction: column;
+h1{
+    margin: 0;
+}
+/* buttons on main */
+.main_button{
+    display: inline-block;
+    flex-direction: row;
     justify-content: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(2, 0, 36) 0%, var(--cool_purple) 40%, rgb(0, 0, 0) 110%);
-    text-align: center;
-    min-height: 100%;
-    margin: 0px auto;
-    font-size: 17px;
+    background-color: transparent;
+    border: none;
+}
+.main_button a{
+    display: table-cell;
+    font-size: 2rem;
+    text-decoration: none;
+    max-height: 4rem;
+    width: auto;
+    padding: 0 2rem;
+    margin: 0 2rem;
+    background: #996ce2;
+    color: #000000;
 }
 /* nav */
-header{
-    padding: 1rem;
-}
 .nav{
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: auto;
+    top: 0;
+    justify-content: space-around;
     align-items: center;
     position: sticky;
-    top: 0;
-    overflow: hidden;
+    flex: 33%;
+    flex-wrap: wrap;
+    z-index: 1000;
 
     background-color: rgb(134, 65, 143);
     border: solid black;
     border-radius: 0% 0% 25% 25%;
-    margin: 0 auto;
+}
+.nav a{
+    font-size: 1rem;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+    padding: 1vh 0;
 }
 nav ul{
-    display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-nav ul li{
-    margin-right: 20px;
-}
 .nav li :hover{
     cursor: pointer;
 }
-
 .nav li{
     display: inline-block;
-    margin: 0 1.5rem;
+    margin: 0 2.5vw;
 }
-.nav a{
-    display: inline-block;
-    text-decoration: none;
-    margin: 0 auto;
-    color: black;
-    white-space: nowrap;
-    max-height: 100%;
-    max-width: 100%;
-}
-a:hover{
-    text-decoration: underline black;
-}
+/* Other elements */
+
 
 /* language switch */
 .lang_button{
     align-items: center;
     right: 0;
     z-index: 1000;
-    margin: 20px;
     overflow: visible;
 }
 .lang_icon {
@@ -240,6 +269,7 @@ a:hover{
 }
 .lang {
     display: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .lang.active {
@@ -247,7 +277,7 @@ a:hover{
 }
 
 /* content */
-.intro img{
+.intro img#me{
     display: block;
     padding: 1rem 0px 2rem;
     margin: 0px auto;
@@ -260,13 +290,28 @@ h3{
 p{
     margin: 0;
 }
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    overflow: clip;
+    min-height: 100vh;
+}
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    max-width: 100%;
+    padding-bottom: 1rem;
+}
 .content{
-    display: block;
+    display: flex;
     border-top: solid rgb(0, 0, 0);
     margin: 0px auto;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
     line-height: 1.5rem;
+}
+.content > *{
+    flex: 1;
+    min-width: fit-content;
 }
 .text_container{
     max-width: 100%;
@@ -276,25 +321,25 @@ p{
 section:nth-child(6){
     text-align: left;
 }
-
+.add{
+    padding: 1rem 0 0;
+    border-top: solid #000000;
+}
 /* form */
 .form_container{
-    align-self: center;
     border: 3px solid black;
     border-radius: 15%;
     background-color: rgb(173, 74, 187);
-    margin: 4rem 0 6rem 0;
+    margin: auto;
+    place-self: center;
 }
 .form input, .form textarea{
-    width: clamp(120px, 50vw, 420px);
+    width: 75%;
     height: 2.5rem;
     border: 1px solid black;
     padding: 0 1.25rem;
     margin: 0.625rem auto;
     transition: all 250ms;
-    @media (min-width: 768px){
-        width: clamp(120px, 35vw, 420px);
-    }
     /* when form_input class is in focus */
     &:focus{
         outline: none;
@@ -341,17 +386,21 @@ input[type=submit]{
     cursor: pointer;
     background-color: var(--off-white);
 }
+
 /* footer */
 footer {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
+    display: inline-flex;
+    position: static;
     align-items: center;
-    bottom: 0;
-    height: 2.5rem;
-    margin: 2rem auto 0 auto;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: auto;
     border-top: 2px solid black;
-    background-color: rgb(134, 65, 143); 
+    background-color: rgb(134, 65, 143);
+    justify-content: space-around;
+    flex: 50% 0 0;
+    flex-wrap: wrap;
+    padding: 0.5rem;
 }
 
 footer a {
@@ -369,7 +418,6 @@ footer a:hover {
 
 .footer_child {
     flex: 1; 
-    padding-top: 1rem;
 }
 
 .footer_child:first-child {
