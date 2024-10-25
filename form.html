@@ -14,21 +14,19 @@
     <meta name="description" content="Portfolio">
 </head>
 
-<!-- header and nav -->
+
 <body>
+    <!-- content container to keep everything responsive -->
     <div class="flex-container">
         <div>
-            <div class="lang_button" id="pc_button">
+            <div class="lang_button" id="button">
                 <img id="en_img_pc" src="src/img/british_flag_128p.png" alt="English" class="lang_icon">
                 <img id="de_img_pc" src="src/img/german_flag_128p.png" alt="Deutsch" class="lang_icon">
             </div>
         </div>
-        <div class="lang_button" id="mobile_button">
-            <img id="en_img_mobile" src="src/img/british_flag_128p.png" alt="English" class="lang_icon">
-            <img id="de_img_mobile" src="src/img/german_flag_128p.png" alt="Deutsch" class="lang_icon">
-        </div>
-    
+        
         <!-- contact form en-->
+         <!-- content wrapper -->
             <main class="parent">
                 <div class="form_container lang en" lang="en">
                     <h2>Contact:</h2>
@@ -44,6 +42,8 @@
                     <!-- messagebox -->
                     <div id="messageBox"></div>
                 </div>
+                <!-- /contact form en-->
+
                 <!-- contact form de-->
                 <div class="form_container lang de" lang="de">
                     <h2>Kontakt:</h2>
@@ -59,7 +59,9 @@
                     <!-- messagebox -->
                     <div id="messageBox"></div>
                 </div>
+                <!-- /contact form de -->
             </main>
+            <!-- /content wrapper -->
 
         <!-- footer -->
         <footer>
@@ -78,7 +80,10 @@
                 </div>
             </div>
         </footer>
+        <!-- /footer -->
     </div>
-    <script src="src/jss/scripts.js"></script>
+    <!-- /content container to keep everything responsive -->
+    <script src="src/jss/utility.js"></script>
+    <script src="src/jss/form.js"></script>
 </body>
 </html>

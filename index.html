@@ -17,21 +17,21 @@
 <!-- header and nav -->
 <body id="main">
     <!-- intro -->
+     <!-- content container to keep everything responsive -->
         <div class="flex-container">
             <div class="intro">
                 <h1 lang="en" class="lang en">About <br> Max Derungs</h1>
                 <h1 lang="de" class="lang de">Über <br> Max Derungs</h1>
-                <div class="lang_button" id="pc_button">
+                <!-- switch language buttons -->
+                <div class="lang_button" id="button">
                     <img id="en_img_pc" src="src/img/british_flag_128p.png" alt="English" class="lang_icon">
                     <img id="de_img_pc" src="src/img/german_flag_128p.png" alt="Deutsch" class="lang_icon">
                 </div>
-                <div class="lang_button" id="mobile_button">
-                    <img id="en_img_mobile" src="src/img/british_flag_128p.png" alt="English" class="lang_icon">
-                    <img id="de_img_mobile" src="src/img/german_flag_128p.png" alt="Deutsch" class="lang_icon">
-                </div>
+                <!-- /switch language buttons -->
+                <!-- img of me lol -->
                 <img src="src/img/pookie.jpg" alt="literally_me" id="me">
             </div>
-            <!-- buttons -->
+            <!-- /intro -->
             
             <!-- eng -->
             <div lang="en" class="lang en">
@@ -44,6 +44,7 @@
                 <button type="button" class="main_button"><a href="form.html?lang=de">Kontakt</a></button>
             </div>
             
+            
             <!-- footer -->
             <footer>
                 <div class="footer_child">
@@ -53,8 +54,10 @@
                     <a href="mailto:mderungsj@gmail.com">mderungsj@gmail.com</a>
                 </div>
             </footer>
+            <!-- /footer -->
         </div>
+        <!-- /content container to keep everything responsive -->
     
-    <script src="src/jss/scripts.js"></script>
+    <script src="src/jss/utility.js"></script>
 </body>
 </html>

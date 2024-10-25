@@ -8,9 +8,11 @@
 @font-face {
     font-family: 'merriweatherbold';
     src: url('../font/merriweather/merriweather-bold-webfont.woff') format('woff');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
+/* /font */
+
 /* colors */
 :root{
     --black: #303030;
@@ -20,6 +22,7 @@
     --bg_darkmode: #121212;
     --text_darkmode: #ffffff;
 }
+/* /colors */
 
 /* general */
 html,
@@ -31,9 +34,6 @@ body{
     flex-direction: column;
 }
 html{
-    --black: #303030;
-    --off-white: #edeee9;
-    --gray: #909090;
     position: relative;
     scroll-behavior: smooth;
     font-family: 'merriweather-italic';
@@ -48,152 +48,14 @@ body{
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-/* media screen queries */
-/* small screen */
-@media screen and (max-width: 600px) {
-    #pc_button {
-        display: none;
-    }
-    #mobile_button {
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
-        position: -webkit-sticky;
-        position: fixed;
-        top: 62px;
-        right: 0px;
-        z-index: 999;
-    }
-    #mobile{
-        display: flex;
-    }
-    body{
-        position: relative;
-        margin: 0;
-    }
-    h1{
-        font-size: 2rem;
-    }
-    p{
-        font-size: 1rem;
-    }
-    .intro{
-        margin: 0;
-    }
-    .intro img#me{
-        max-width: 70%;
-        height: auto;
-    }
-    .lang_icon{
-    width: 30px;
-    height: 30px;
-    }
-    .lang_button{
-        padding: 0;
-        margin: 0 20px;
-    }
-    .content{
-    max-width: 100%;
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    flex: 50%;
-    padding: 4rem 1rem 2rem 1rem;
-    }
-    section:nth-child(5){
-        font-size: 1rem;
-    }
-    .form_container{
-    width: 75%;
-    height: auto;
-    }
-    footer{
-        width: 100%;
-    }
-    footer li{
-        font-size: 1rem;
-    }
-    .footer_child:last-child {
-        position: relative;
-    }
-}
-/* bigger screen */
-@media screen and (min-width: 600px) {
-    #mobile_button {
-        display: none;
-    }
-    #pc_button {
-        display: inline-block;
-        position: -webkit-sticky;
-        position: relative;
-        left: 0;
-        right: 0;
-    }
-    #pc_button.info {
-        left: 35vw;
-    }
-    #mobile{
-        display: none;
-    }
-    html,
-    body{
-        margin: 0px auto;
-    }
-    body{
-        width: 85%;
-    }
-    h1{
-        font-size: 3rem;
-    }
-    p{
-        font-size: 1.2rem;
-    }
-    .nav a{
-        font-size: 2rem;
-    }
-    .intro{
-        margin-top: 1rem;
-    }
-    .intro img#me{
-        max-width: 30%;
-        height: auto;
-    }
-    .lang_icon{
-        width: 40px;
-        height: 40px;
-    }
-    .lang_button{
-        padding: 10px 20px;
-    }
-    .content{
-    max-width: 60%;
-    border-top-left-radius: 75%;
-    border-top-right-radius: 75%;
-    flex: 35%;
-    padding: 4rem 1rem 3rem;
-    }
-    .form_container{
-    width: 50%;
-    height: 5rem auto;
-    }
-    #good_to_know{
-    padding: 0rem 0rem 1rem;
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
-    }
-    footer{
-        width: 75%;
-        font-size: 1.2rem;
-    }
-    .footer_child:last-child {
-        text-align: left; 
-        position: relative;
-        margin: 0 auto;
-    }
-}
-/* body */
 h1{
     margin: 0;
 }
+p{
+    margin: 0;
+}
+/* /general */
+
 /* buttons on main */
 .main_button{
     display: inline-block;
@@ -213,6 +75,8 @@ h1{
     background: #996ce2;
     color: #000000;
 }
+/* /buttons on main */
+
 /* nav */
 .nav{
     width: 100%;
@@ -242,20 +106,16 @@ nav ul{
     margin: 0;
     padding: 0;
 }
-.nav li :hover{
+.nav li:hover{
     cursor: pointer;
 }
 .nav li{
     display: inline-block;
     margin: 0 2.5vw;
 }
-/* Other elements */
-
-
+/* /nav */
 /* language switch */
 .lang_button{
-    align-items: center;
-    right: 0;
     z-index: 1000;
     overflow: visible;
 }
@@ -265,36 +125,39 @@ nav ul{
         -webkit-touch-callout: none;  /* Disable image save menu on long press */
         user-select: none;
         pointer-events: auto; /* Ensure it's clickable */
-    
 }
 .lang {
     display: none;
     transition: all 0.3s ease-in-out;
 }
-
 .lang.active {
     display: block;
 }
+/* /language switch */
 
 /* content */
 .intro img#me{
     display: block;
     padding: 1rem 0px 2rem;
     margin: 0px auto;
-    border-radius: 15%;
+    border-radius: 15%; 
 }
-h3{
-    font-size: 1.5rem;
-    text-align: center;
-}
-p{
-    margin: 0;
+img{
+   -webkit-user-drag: none;
+   -webkit-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none 
 }
 .flex-container{
     display: flex;
     flex-direction: column;
-    overflow: clip;
+    overflow: initial;
     min-height: 100vh;
+}
+.title{
+    font-size: 1.5rem;
+    font-family: 'merriweatherbold';
 }
 .parent{
     display: flex;
@@ -325,14 +188,19 @@ section:nth-child(6){
     padding: 1rem 0 0;
     border-top: solid #000000;
 }
+/* /content */
+
 /* form */
+/* form container */
 .form_container{
     border: 3px solid black;
     border-radius: 15%;
     background-color: rgb(173, 74, 187);
     margin: auto;
     place-self: center;
+    height: fit-content;
 }
+/* form input and textarea */
 .form input, .form textarea{
     width: 75%;
     height: 2.5rem;
@@ -340,7 +208,7 @@ section:nth-child(6){
     padding: 0 1.25rem;
     margin: 0.625rem auto;
     transition: all 250ms;
-    /* when form_input class is in focus */
+    /* when elemt with class form_input is in focus */
     &:focus{
         outline: none;
         border-top-color: rgba(0, 0, 0, 0.1);
@@ -381,11 +249,15 @@ section:nth-child(6){
 
     pointer-events: none;
 }
+/* /contactform labels */
+
 /*submit button  */
 input[type=submit]{
     cursor: pointer;
     background-color: var(--off-white);
 }
+/* /submit button  */
+/* /form */
 
 /* footer */
 footer {
@@ -423,3 +295,141 @@ footer a:hover {
 .footer_child:first-child {
     text-align: left;
 }
+/* /footer */
+
+/* media screen queries */
+/* small screen */
+@media screen and (max-width: 600px) {
+    #button {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        position: fixed;
+        top: 62px;
+        right: 0px;
+        z-index: 999;
+    }
+    #mobile{
+        display: flex;
+    }
+    body{
+        position: relative;
+        margin: 0px;
+    }
+    .parent{
+        margin: 0 10%;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    p{
+        font-size: 1rem;
+    }
+    .intro{
+        margin: 0;
+    }
+    .intro img#me{
+        max-width: 70%;
+        height: auto;
+    }
+    .lang_icon{
+    width: 30px;
+    height: 30px;
+    }
+    .lang_button{
+        padding: 0;
+        margin: 0 20px;
+    }
+    .content{
+    max-width: 100%;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    flex: 50%;
+    padding: 4rem 1rem 2rem 1rem;
+    }
+    section:nth-child(5){
+        font-size: 1rem;
+    }
+    .form_container{
+    width: 100%;
+    }
+    footer{
+        width: 100%;
+    }
+    footer li{
+        font-size: 1rem;
+    }
+    .footer_child:last-child {
+        position: relative;
+    }
+}
+/* /small screen */
+
+/* bigger screen */
+@media screen and (min-width: 600px) {
+    #button {
+        display: inline-block;
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+    #pc_button.info {
+        left: 35vw;
+    }
+    #mobile{
+        display: none;
+    }
+    body{
+        width: 85%;
+        margin: 0px auto;
+    }
+    h1{
+        font-size: 3rem;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+    .nav a{
+        font-size: 2rem;
+    }
+    .intro{
+        margin-top: 1rem;
+    }
+    .intro img#me{
+        max-width: 30%;
+        height: auto;
+    }
+    .lang_icon{
+        width: 40px;
+        height: 40px;
+    }
+    .lang_button{
+        padding: 10px 20px;
+    }
+    .content{
+    max-width: 75%;
+    border-top-left-radius: 75%;
+    border-top-right-radius: 75%;
+    flex: 35%;
+    padding: 4rem 1rem 3rem;
+    }
+    .form_container{
+    width: 50%;
+    }
+    #good_to_know{
+    padding: 0rem 0rem 1rem;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    }
+    footer{
+        width: 75%;
+        font-size: 1.2rem;
+    }
+    .footer_child:last-child {
+        text-align: left; 
+        position: relative;
+        margin: 0 auto;
+    }
+}
+/* /bigger screen */
+/* /media screen queries */

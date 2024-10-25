@@ -14,9 +14,10 @@
     <meta name="description" content="Portfolio">
 </head>
 
-<!-- header and nav -->
 <body>
+    <!-- content container to keep everything responsive -->
     <div class="flex-container">
+        <!-- nav for small screens -->
         <div class="nav" id="mobile">
             <header>
                 <!-- de -->
@@ -38,22 +39,23 @@
                 </nav>
             </header>
         </div>
-        <div class="lang_button info" id="pc_button">
+        <!-- /nav for small screens -->
+
+         <!-- switch language buttons -->
+        <div class="lang_button info" id="button">
             <img id="en_img_pc" src="src/img/british_flag_128p.png" alt="English" class="lang_icon">
             <img id="de_img_pc" src="src/img/german_flag_128p.png" alt="Deutsch" class="lang_icon">
         </div>
-        
-        <div class="lang_button" id="mobile_button">
-            <img id="en_img_mobile" src="src/img/british_flag_128p.png" alt="English" class="lang_icon">
-            <img id="de_img_mobile" src="src/img/german_flag_128p.png" alt="Deutsch" class="lang_icon">
-        </div>
+        <!-- /switch language buttons -->
 
         <!-- content -->
-        
+        <!-- content wrapper -->
         <main class="parent">
+            <!-- section "about me" -->
+             <!-- en -->
             <section class="content" id="about_me">
                 <div lang="en" class="lang en">
-                    <h3>About me</h3>
+                    <h3 class="title" class="title">About me</h3>
                     <div class="text_container">
                         <p>Hello my name's Max, i was born on may the 10th in 2004. <br>
                             I see myself as a very self aware person, i like to help others and i enjoy learning <br>
@@ -64,8 +66,10 @@
                         </p>
                     </div>
                 </div>
+                <!-- /en -->
+                <!-- de -->
                 <div lang="de" class="lang de">
-                    <h3>Über mich</h3>
+                    <h3 class="title" class="title">Über mich</h3>
                     <div class="text_container">
                         <p>Hallo Mein Name ist Max und Ich wurde am 10. Mai 2004 Geboren.<br>
                             Ich sehe mich als eine sehr reflektierte Person, gerne helfe ich anderen Menschen und lerne auch neues dazu. <br>
@@ -77,21 +81,15 @@
                         </p>
                     </div>
                 </div>
+                <!-- /de -->
             </section>
+            <!-- /section "about me" -->
+
+            <!-- section "experiences" -->
             <section class="content" id="experiences">
-                <div lang="de" class="lang de">
-                    <h3>Erfahrung</h3>
-                    <div class="text_container">
-                        <p>Sofern versuchte ich Zwei andere Berufe, Koch in 2021 und Carroserie-Spengler in 2022. Beide musste ich zwar leider abbrechen.
-                            Aber dennoch habe ich dort gelernt mich auf das kleinste Detail zu achten und Schritt für Schritt vorzuplanen. <br> <br>
-                            Durchs Krafttraining und einer bewussten Ernähung, was 2021 anfing und von einem verzweifelten Versuch nach Veränderung, zur besten Lebenseinstellungen wurde wo ich machen konnte. <br>
-                            Hat mir nicht nur beigebracht Immer präsent zu sein und mein bestes zu geben, sondern auch konsequent, wiederstandsfähig und geduldig zu sein, was auch weiterhin meine Fähigkeit zu planen verbesserte. <br> <br>
-                            Wie erwähnt, mache ich zurzeit meine Lehre bei der Espas, bei der ich gelernt habe eine Webseite zu schreiben und zu designen, kommunikation und mir einen Einblick in Sachen wie Python und simple automatisierungsskripts gab.
-                        </p>
-                    </div>
-                </div>
+                <!-- en -->
                 <div lang="en" class="lang en">
-                    <h3>Experiences</h3>
+                    <h3 class="title">Experiences</h3>
                     <div class="text_container">
                         <p>I've so far tried two different jobs, cook in 2021 and car body mechanic in 2022, both which i unfortunately quit for personal reasons. <br>
                             But they not only taught me about the importance of the smallest details, but also to first think and plan before i start my objective. <br> <br>
@@ -101,23 +99,28 @@
                         </p>
                     </div>
                 </div>
-            </section>
-            <section class="content" id="good_to_know">
+                <!-- /en -->
+                <!-- de -->
                 <div lang="de" class="lang de">
-                    <h3>Gut zu wissen</h3>
+                    <h3 class="title">Erfahrung</h3>
                     <div class="text_container">
-                        <ul></ul>
-                            <li>Ich liebe es zu gestalten, lernen und mich allgemein zu verbessern</li> <br>
-                            <li>Ich helfe gerne anderen Menschen und Probleme zu lösen</li> <br>
-                            <li>Ich bin gerne aktiv aber ich spiele auch hin und wieder mal games</li> <br>
-                            <li>Ich finde es sehr wichtig, dass man sich pflegt</li> <br>
-                            <li>Ich vertrage schmutzige Umgebungen nicht</li> <br>
-                            <li>Ich hasse Vergleiche zwischen einzelpersonen</li> <br>
-                        </ul>
+                        <p>Sofern versuchte ich Zwei andere Berufe, Koch in 2021 und Carroserie-Spengler in 2022. Beide musste ich zwar leider abbrechen.
+                            Aber dennoch habe ich dort gelernt mich auf das kleinste Detail zu achten und Schritt für Schritt vorzuplanen. <br> <br>
+                            Durchs Krafttraining und einer bewussten Ernähung, was 2021 anfing und von einem verzweifelten Versuch nach Veränderung, zur besten Lebenseinstellungen wurde wo ich machen konnte. <br>
+                            Hat mir nicht nur beigebracht Immer präsent zu sein und mein bestes zu geben, sondern auch konsequent, wiederstandsfähig und geduldig zu sein, was auch weiterhin meine Fähigkeit zu planen verbesserte. <br> <br>
+                            Wie erwähnt, mache ich zurzeit meine Lehre bei der Espas, bei der ich gelernt habe eine Webseite zu schreiben und zu designen, kommunikation und mir einen Einblick in Sachen wie Python und simple automatisierungsskripts gab.
+                        </p>
                     </div>
                 </div>
+                <!-- /de -->
+            </section>
+            <!-- /section "experiences" -->
+
+            <!-- section "good to know" -->
+            <section class="content" id="good_to_know">
+                <!-- en -->
                 <div lang="en" class="lang en">
-                    <h3>Good to know</h3>
+                    <h3 class="title">Good to know</h3>
                     <div class="text_container">
                         <ul>
                             <li>I love to Design, to learn and to get improve at things in general</li> <br>
@@ -130,8 +133,28 @@
                         <p class="add">Feel free to contact me for more information</p>
                     </div>
                 </div>
+                <!-- /en -->
+                <!-- de -->
+                <div lang="de" class="lang de">
+                    <h3 class="title">Gut zu wissen</h3>
+                    <div class="text_container">
+                        <ul></ul>
+                            <li>Ich liebe es zu gestalten, lernen und mich allgemein zu verbessern</li> <br>
+                            <li>Ich helfe gerne anderen Menschen und Probleme zu lösen</li> <br>
+                            <li>Ich bin gerne aktiv aber ich spiele auch hin und wieder mal games</li> <br>
+                            <li>Ich finde es sehr wichtig, dass man sich pflegt</li> <br>
+                            <li>Ich vertrage schmutzige Umgebungen nicht</li> <br>
+                            <li>Ich hasse Vergleiche zwischen einzelpersonen</li> <br>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /de -->
             </section>
+            <!-- /section "good to know" -->
         </main>
+        <!-- /content wrapper -->
+        <!-- /content -->
+
         <!-- footer -->
         <footer>
             <div class="footer_child">
@@ -149,8 +172,9 @@
                 </div>
             </div>
         </footer>
+        <!-- /footer -->
     </div> 
-    
-    <script src="src/jss/scripts.js"></script>
+    <!-- /content container to keep everything responsive -->
+    <script src="src/jss/utility.js"></script>
 </body>
 </html>
