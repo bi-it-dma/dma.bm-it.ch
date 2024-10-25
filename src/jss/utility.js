@@ -1,7 +1,7 @@
 //utility.js
 
 // Function for switching site language via button
-//when the site loads
+//run code when the site loads
 document.addEventListener('DOMContentLoaded', () => {
     const englishImagePc = document.getElementById('en_img_pc');
     const germanImagePc = document.getElementById('de_img_pc');
